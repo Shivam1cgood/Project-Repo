@@ -78,7 +78,7 @@ class DataValidation:
         try:
 
             file_name = os.path.basename(file_path)
-            regex = "['phising']+['\_'']+[\d_]+[\d]+\.csv"
+            regex = "['phishing']+['\_'']+[\d_]+[\d]+\.csv"
 
             if re.match(regex, file_name):
                 splitAtDot = re.split('.csv', file_name)

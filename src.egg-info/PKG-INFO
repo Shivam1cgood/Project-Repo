@@ -1,5 +1,7 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: src
 Version: 0.0.1
 Author: Shivam
 Author-email: shivamlohra19@gmail.com
+Dynamic: author
+Dynamic: author-email

@@ -1,0 +1,8 @@
+[ 2026-03-12 21:31:17,852 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-12 21:31:17,854 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-12 21:31:17,909 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-12 21:31:17,910 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-12 21:31:18,129 ] 225 werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 21:31:18] "GET / HTTP/1.1" 200 -
+[ 2026-03-12 21:31:18,392 ] 225 werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 21:31:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2026-03-12 21:32:22,840 ] 225 werkzeug - INFO -  * Detected change in 'C:\\Users\\Shivam\\Documents\\phising classifier pulled\\Project-Repo\\app.py', reloading

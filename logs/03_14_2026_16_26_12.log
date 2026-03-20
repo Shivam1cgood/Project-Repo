@@ -1,0 +1,53 @@
+[ 2026-03-14 16:26:14,347 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-14 16:26:14,350 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-14 16:26:14,426 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-14 16:26:14,427 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-14 16:26:19,013 ] 142 root - INFO - Starting TrainingPipeline.
+[ 2026-03-14 16:26:19,013 ] 116 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2026-03-14 16:26:19,014 ] 34 root - INFO - Trying to export data from MongoDB
+[ 2026-03-14 16:26:19,620 ] 101 root - WARNING - MongoDB ingestion failed (Error occurred python script name [C:\Users\Shivam\Documents\phising classifier pulled\Project-Repo\src\components\data_ingestion.py] line number [47] error message [MongoDB returned no collections to ingest.]). Falling back to local CSV.
+[ 2026-03-14 16:26:19,620 ] 59 root - INFO - Falling back to local CSV ingestion
+[ 2026-03-14 16:26:19,645 ] 69 root - INFO - Loaded local CSV with shape: (11055, 31)
+[ 2026-03-14 16:26:19,724 ] 75 root - INFO - Saved ingested data to: artifacts\03_14_2026_16_26_13\data_ingestion\phishing_08012020_120000.csv
+[ 2026-03-14 16:26:19,725 ] 121 root - INFO - Data ingestion completed (MongoDB and/or local CSV)
+[ 2026-03-14 16:26:19,725 ] 122 root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2026-03-14 16:26:19,725 ] 148 root - INFO - Raw data exported to directory: artifacts\03_14_2026_16_26_13\data_ingestion
+[ 2026-03-14 16:26:19,725 ] 261 root - INFO - Entered initiate_data_validation method of Data_Validation class
+[ 2026-03-14 16:26:19,725 ] 264 root - INFO - Initiated data validation for the dataset
+[ 2026-03-14 16:26:19,792 ] 153 root - INFO - Validated data directory: artifacts\03_14_2026_16_26_13\data_validation\validated
+[ 2026-03-14 16:26:19,792 ] 79 root - INFO - Entered initiate_data_transformation method of Data_Transformation class
+[ 2026-03-14 16:26:19,815 ] 108 root - INFO - Unwanted spaces removal Successful.Exited the remove_unwanted_spaces method of the Preprocessor class
+[ 2026-03-14 16:26:19,865 ] 41 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-03-14 16:26:19,866 ] 47 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-03-14 16:26:19,867 ] 165 root - INFO - Preprocessor saved at: artifacts\03_14_2026_16_26_13\data_transformation\preprocessing.pkl
+[ 2026-03-14 16:26:19,869 ] 96 root - INFO - Starting grid search for model: XGBClassifier
+[ 2026-03-14 16:26:40,310 ] 111 root - INFO - Model: XGBClassifier, Best Params: {'max_depth': 11, 'n_estimators': 100, 'random_state': 0}, Validation Accuracy: 0.9711733658140479
+[ 2026-03-14 16:26:40,311 ] 96 root - INFO - Starting grid search for model: GaussianNB
+[ 2026-03-14 16:26:40,501 ] 111 root - INFO - Model: GaussianNB, Best Params: {'var_smoothing': 0.5}, Validation Accuracy: 0.9090539991879821
+[ 2026-03-14 16:26:40,501 ] 96 root - INFO - Starting grid search for model: LogisticRegression
+[ 2026-03-14 16:26:42,015 ] 111 root - INFO - Model: LogisticRegression, Best Params: {'C': 500, 'max_iter': 100, 'penalty': 'l2', 'solver': 'liblinear'}, Validation Accuracy: 0.9301664636622006
+[ 2026-03-14 16:26:42,015 ] 124 root - INFO - Best model selected: XGBClassifier with validation accuracy: 0.9711733658140479
+[ 2026-03-14 16:26:42,015 ] 41 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-03-14 16:26:42,019 ] 47 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-03-14 16:26:42,019 ] 131 root - INFO - Saved best model at: artifacts\03_14_2026_16_26_13\model\model.pkl
+[ 2026-03-14 16:26:42,019 ] 175 root - INFO - Training pipeline completed. Best model: XGBClassifier, Validation accuracy: 0.9711733658140479
+[ 2026-03-14 16:26:42,020 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 16:26:42] "GET /train HTTP/1.1" 200 -
+[ 2026-03-14 16:27:34,803 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 16:27:34] "[32mGET / HTTP/1.1[0m" 302 -
+[ 2026-03-14 16:27:35,086 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 16:27:35] "GET /predict HTTP/1.1" 200 -
+[ 2026-03-14 16:27:35,175 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 16:27:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[ 2026-03-14 16:27:48,808 ] 79 root - INFO - Starting PredictionPipeline.
+[ 2026-03-14 16:27:48,814 ] 48 root - INFO - Using latest artifact directory for prediction: artifacts\03_14_2026_16_26_13
+[ 2026-03-14 16:27:48,817 ] 93 root - INFO - Uploaded file saved at: artifacts\03_14_2026_16_26_13\prediction\phising_08012020_120000.csv
+[ 2026-03-14 16:27:48,851 ] 108 root - INFO - Unwanted spaces removal Successful.Exited the remove_unwanted_spaces method of the Preprocessor class
+[ 2026-03-14 16:27:48,853 ] 48 root - INFO - Using latest artifact directory for prediction: artifacts\03_14_2026_16_26_13
+[ 2026-03-14 16:27:48,854 ] 59 root - INFO - Loading preprocessor from: artifacts\03_14_2026_16_26_13\data_transformation\preprocessing.pkl
+[ 2026-03-14 16:27:48,854 ] 56 root - INFO - Entered the load_object method of MainUtils class
+[ 2026-03-14 16:27:48,854 ] 62 root - INFO - Exited the load_object method of MainUtils class
+[ 2026-03-14 16:27:48,854 ] 48 root - INFO - Using latest artifact directory for prediction: artifacts\03_14_2026_16_26_13
+[ 2026-03-14 16:27:48,854 ] 70 root - INFO - Loading model from: artifacts\03_14_2026_16_26_13\model\model.pkl
+[ 2026-03-14 16:27:48,854 ] 56 root - INFO - Entered the load_object method of MainUtils class
+[ 2026-03-14 16:27:48,861 ] 62 root - INFO - Exited the load_object method of MainUtils class
+[ 2026-03-14 16:27:48,959 ] 118 root - INFO - Prediction file saved at: artifacts\03_14_2026_16_26_13\prediction\prediction_phising_08012020_120000.csv
+[ 2026-03-14 16:27:48,960 ] 49 root - INFO - prediction completed. Downloading prediction file.
+[ 2026-03-14 16:27:48,973 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 16:27:48] "POST /predict HTTP/1.1" 200 -

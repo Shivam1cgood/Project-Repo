@@ -6,7 +6,7 @@ import os
 import shutil
 import json
 
-from env.Lib.pathlib import Path
+from pathlib import Path
 from src.constant import *
 from src.exception import CustomException
 from src.logger import logging
@@ -15,7 +15,7 @@ from dataclasses import dataclass
 
 LENGTH_OF_DATE_STAMP_IN_FILE = 8
 LENGTH_OF_TIME_STAMP_IN_FILE = 6
-NUMBER_OF_COLUMNS = 11
+NUMBER_OF_COLUMNS = 31
 
 
 @dataclass
@@ -67,7 +67,9 @@ class DataValidation:
                            length_of_time_stamp: int) -> bool:
         """
             Method Name :   validate_file_columns
-            Description :   This method validates the file name for a particular raw file 
+            Description :   This method validates the file name for a particular raw file.
+                            Accepts either timestamped names (phishing_ddmmyyyy_hhmmss.csv)
+                            or simple names from ingestion (e.g. phishing.csv).
             
             Output      :   True or False value is returned based on the schema 
             On Failure  :   Write an exception log and then raise an exception
@@ -76,19 +78,26 @@ class DataValidation:
             Revisions   :   moved setup to cloud
         """
         try:
-
             file_name = os.path.basename(file_path)
-            regex = "['phishing']+['\_'']+[\d_]+[\d]+\.csv"
+            if not file_name.endswith(".csv"):
+                return False
 
+            # Accept simple ingestion-style names (e.g. phishing.csv, collection_name.csv)
+            simple_csv = re.match(r"^[a-zA-Z0-9_\-]+\.csv$", file_name)
+            if simple_csv:
+                return True
+
+            # Otherwise require timestamped pattern: phishing_ddmmyyyy_hhmmss.csv
+            regex = r"phishing_[\d_]+[\d]+\.csv"
             if re.match(regex, file_name):
-                splitAtDot = re.split('.csv', file_name)
-                splitAtDot = (re.split('_', splitAtDot[0]))
-                filename_validation_status = len(splitAtDot[1]) == length_of_date_stamp and len(
-                    splitAtDot[2]) == length_of_time_stamp
-            else:
-                filename_validation_status = False
-
-            return filename_validation_status
+                split_at_dot = re.split(r"\.csv", file_name)[0]
+                parts = re.split("_", split_at_dot)
+                if len(parts) >= 3:
+                    return (
+                        len(parts[1]) == length_of_date_stamp
+                        and len(parts[2]) == length_of_time_stamp
+                    )
+            return False
 
         except Exception as e:
             raise CustomException(e, sys)

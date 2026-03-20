@@ -1,0 +1,34 @@
+[ 2026-03-14 13:38:10,826 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-14 13:38:10,828 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-14 13:38:10,885 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-14 13:38:10,885 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-14 13:38:15,517 ] 142 root - INFO - Starting TrainingPipeline.
+[ 2026-03-14 13:38:15,518 ] 116 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2026-03-14 13:38:15,532 ] 34 root - INFO - Trying to export data from MongoDB
+[ 2026-03-14 13:38:16,154 ] 101 root - WARNING - MongoDB ingestion failed (Error occurred python script name [C:\Users\Shivam\Documents\phising classifier pulled\Project-Repo\src\components\data_ingestion.py] line number [47] error message [MongoDB returned no collections to ingest.]). Falling back to local CSV.
+[ 2026-03-14 13:38:16,154 ] 59 root - INFO - Falling back to local CSV ingestion
+[ 2026-03-14 13:38:16,181 ] 69 root - INFO - Loaded local CSV with shape: (11055, 31)
+[ 2026-03-14 13:38:16,234 ] 75 root - INFO - Saved ingested data to: artifacts\03_14_2026_13_38_10\data_ingestion\phishing_08012020_120000.csv
+[ 2026-03-14 13:38:16,234 ] 121 root - INFO - Data ingestion completed (MongoDB and/or local CSV)
+[ 2026-03-14 13:38:16,234 ] 122 root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2026-03-14 13:38:16,234 ] 148 root - INFO - Raw data exported to directory: artifacts\03_14_2026_13_38_10\data_ingestion
+[ 2026-03-14 13:38:16,234 ] 261 root - INFO - Entered initiate_data_validation method of Data_Validation class
+[ 2026-03-14 13:38:16,234 ] 264 root - INFO - Initiated data validation for the dataset
+[ 2026-03-14 13:38:16,294 ] 153 root - INFO - Validated data directory: artifacts\03_14_2026_13_38_10\data_validation\validated
+[ 2026-03-14 13:38:16,295 ] 79 root - INFO - Entered initiate_data_transformation method of Data_Transformation class
+[ 2026-03-14 13:38:16,315 ] 108 root - INFO - Unwanted spaces removal Successful.Exited the remove_unwanted_spaces method of the Preprocessor class
+[ 2026-03-14 13:38:16,368 ] 41 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-03-14 13:38:16,369 ] 47 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-03-14 13:38:16,370 ] 165 root - INFO - Preprocessor saved at: artifacts\03_14_2026_13_38_10\data_transformation\preprocessing.pkl
+[ 2026-03-14 13:38:16,373 ] 96 root - INFO - Starting grid search for model: XGBClassifier
+[ 2026-03-14 13:38:36,328 ] 111 root - INFO - Model: XGBClassifier, Best Params: {'max_depth': 9, 'n_estimators': 100, 'random_state': 0}, Validation Accuracy: 0.9719853836784409
+[ 2026-03-14 13:38:36,328 ] 96 root - INFO - Starting grid search for model: GaussianNB
+[ 2026-03-14 13:38:36,517 ] 111 root - INFO - Model: GaussianNB, Best Params: {'var_smoothing': 0.5}, Validation Accuracy: 0.9005278116118555
+[ 2026-03-14 13:38:36,518 ] 96 root - INFO - Starting grid search for model: LogisticRegression
+[ 2026-03-14 13:38:38,428 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:38] "[35m[1mGET /train HTTP/1.1[0m" 500 -
+[ 2026-03-14 13:38:38,490 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:38] "GET /train?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[ 2026-03-14 13:38:38,753 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:38] "GET /train?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[ 2026-03-14 13:38:39,098 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:39] "GET /train?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+[ 2026-03-14 13:38:39,099 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:39] "GET /train?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+[ 2026-03-14 13:38:39,346 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 13:38:39] "GET /train?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -

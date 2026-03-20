@@ -1,0 +1,14 @@
+[ 2026-03-14 12:35:47,270 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-14 12:35:47,272 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-14 12:35:47,323 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-14 12:35:47,324 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-14 12:35:58,302 ] 142 root - INFO - Starting TrainingPipeline.
+[ 2026-03-14 12:35:58,302 ] 69 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2026-03-14 12:35:58,313 ] 39 root - INFO - Exporting data from mongodb
+[ 2026-03-14 12:35:58,314 ] 46 root - INFO - Saving exported data into feature store file path: artifacts\03_14_2026_12_35_46\data_ingestion
+[ 2026-03-14 12:35:58,996 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 12:35:58] "[35m[1mGET /train HTTP/1.1[0m" 500 -
+[ 2026-03-14 12:35:59,065 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 12:35:59] "GET /train?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[ 2026-03-14 12:35:59,328 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 12:35:59] "GET /train?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[ 2026-03-14 12:35:59,667 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 12:35:59] "GET /train?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+[ 2026-03-14 12:35:59,683 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 12:35:59] "GET /train?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -

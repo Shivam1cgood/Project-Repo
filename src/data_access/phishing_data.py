@@ -1,9 +1,10 @@
 import sys
-from typing import Optional, List
-from database_connect import mongo_operation as mongo
-from pymongo import MongoClient
+from typing import List
+
 import numpy as np
 import pandas as pd
+from pymongo import MongoClient
+
 from src.constant import *
 from src.configuration.mongo_db_connection import MongoDBClient
 from src.exception import CustomException
@@ -28,25 +29,35 @@ class PhisingData:
             raise CustomException(e, sys)
 
     def get_collection_names(self) -> List:
+        """
+        Return list of collection names from the configured MongoDB database.
+        """
+        try:
+            client = MongoDBClient(database_name=self.database_name)
+            collection_names = client.database.list_collection_names()
+            return collection_names
+        except Exception as e:
+            raise CustomException(e, sys)
 
-        mongo_db_client = MongoClient(self.mongo_url)
-        collection_names = mongo_db_client[self.database_name].list_collection_names()
-        return collection_names
+    def get_collection_data(self, collection_name: str) -> pd.DataFrame:
+        """
+        Fetch all documents from a given collection as a pandas DataFrame.
+        """
+        try:
+            client = MongoDBClient(database_name=self.database_name)
+            collection = client.database[collection_name]
+            records = list(collection.find())
 
-    def get_collection_data(self,
-                            collection_name: str) -> pd.DataFrame:
+            df = pd.DataFrame(records)
 
-        mongo_connection = mongo(
-            client_url=self.mongo_url,
-            database_name=self.database_name,
-            collection_name=collection_name
-        )
-        df = mongo_connection.find()
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"])
 
-        if "_id" in df.columns.to_list():
-            df = df.drop(columns=["_id"])
-        df = df.replace({"na": np.nan})
-        return df
+            df = df.replace({"na": np.nan})
+            return df
+
+        except Exception as e:
+            raise CustomException(e, sys)
 
     def export_collections_as_dataframe(
             self) -> pd.DataFrame:

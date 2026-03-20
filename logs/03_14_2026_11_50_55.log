@@ -1,0 +1,6 @@
+[ 2026-03-14 11:50:58,142 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-14 11:50:58,144 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-14 11:50:58,205 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-14 11:50:58,206 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-14 11:51:03,426 ] 225 werkzeug - INFO - 127.0.0.1 - - [14/Mar/2026 11:51:03] "[35m[1mGET /train HTTP/1.1[0m" 503 -

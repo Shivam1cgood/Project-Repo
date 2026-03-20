@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Phising detection</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="../static/css/style.css">
-
+  <meta charset="UTF-8" />
+  <title>Phishing Detection - Upload CSV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
-	
-<!-- partial:index.partial.html -->
-<form action = "/predict" method = "post" enctype="multipart/form-data" >
-	<h1 class="title">Upload CSV for the prediction</h1>
-<div class="frame">
-	<div class="center">
-		<div class="title">
-			<h1>Drop file to upload</h1>
-		</div>
-		
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-badge">ML</span>
+        <div class="brand-text">
+          <h1 class="brand-title">Phishing URL Classifier</h1>
+          <p class="brand-subtitle">Upload a CSV of URLs to detect phishing attempts.</p>
+        </div>
+      </div>
+    </header>
 
-			<div class="dropzone">
-				<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
-				<input type="file" class="upload-input" name = "file" accept=".csv" >
-			</div>
+    <main class="content">
+      <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title">Upload CSV for Prediction</h2>
+            <p class="card-description">
+              Choose a CSV file with the same columns used for training. The model will return a file with predictions.
+            </p>
+          </div>
 
-		<button type="submit" class="btn" name="uploadbutton">Upload file</button>
-		
-	</div>
+          <div class="card-body">
+            <div class="dropzone">
+              <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" alt="Upload icon" />
+              <input
+                type="file"
+                class="upload-input"
+                name="file"
+                accept=".csv"
+                required
+              />
+              <p class="dropzone-text">
+                Drop your CSV here or click to browse
+              </p>
+              <p class="dropzone-hint">
+                Max size ~10MB · .csv only
+              </p>
+            </div>
+          </div>
 
-</div>
+          <div class="card-footer">
+            <button type="submit" class="btn" name="uploadbutton">
+              Run Prediction
+            </button>
+          </div>
+        </section>
+      </form>
+    </main>
 
-</form>
-<!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
-
-<!-- NO JS ADDED YET -->
-<!-- partial -->
-  <script src='https://100dayscss.com/codepen/js/jquery.min.js'></script><script  src="./script.js"></script>
-
+    <footer class="footer">
+      <p>Powered by a machine learning model trained on phishing URLs.</p>
+    </footer>
+  </div>
 </body>
 </html>

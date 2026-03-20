@@ -1,0 +1,6 @@
+[ 2026-03-14 13:20:28,912 ] 225 werkzeug - WARNING -  * Debugger is active!
+[ 2026-03-14 13:20:28,914 ] 225 werkzeug - INFO -  * Debugger PIN: 105-645-931
+[ 2026-03-14 13:20:28,966 ] 225 werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[ 2026-03-14 13:20:28,967 ] 225 werkzeug - INFO -  * Running on http://192.168.1.6:8080/ (Press CTRL+C to quit)
+[ 2026-03-14 13:23:56,380 ] 225 werkzeug - INFO -  * Detected change in 'C:\\Users\\Shivam\\Documents\\phising classifier pulled\\Project-Repo\\src\\components\\data_ingestion.py', reloading

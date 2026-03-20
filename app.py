@@ -1,7 +1,16 @@
-from flask import Flask, render_template, jsonify, request, send_file
+import os
+import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Load .env from the folder where app.py lives (project root), so it works no matter where you run from
+_env_path = Path(__file__).resolve().parent / ".env"
+load_dotenv(dotenv_path=_env_path)
+
+from flask import Flask, render_template, jsonify, request, send_file, redirect, url_for
 from src.exception import CustomException
 from src.logger import logging as lg
-import os,sys
 
 from src.pipeline.train_pipeline import TrainingPipeline
 from src.pipeline.predict_pipeline import PredictionPipeline
@@ -10,19 +19,24 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return jsonify("Website main page / home")
+    # Redirect to prediction page as the main UI
+    return redirect(url_for("predict"))
 
 
 @app.route("/train")
 def train_route():
     try:
+        if not os.getenv("MONGO_DB_URL"):
+            return (
+                "MONGO_DB_URL is not set. Create a .env file in the project root with:\n"
+                "MONGO_DB_URL=mongodb+srv://your-connection-string",
+                503,
+            )
         train_pipeline = TrainingPipeline()
         train_pipeline.run_pipeline()
-
         return "Training Completed."
-
     except Exception as e:
-        raise CustomException(e,sys)
+        raise CustomException(e, sys)
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
